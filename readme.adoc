@@ -54,6 +54,13 @@ Dual pane file manager
 
  sudo apt-get install doublecmd-qt
 
+After this install the Double commander should be in the `Accessories`
+
+.Double Commander
+image::doublecommander.png[Double Commander, alt='Alt Tag', align='center']
+ 
+
+
 === Visual Studio Code
 
 IDE and editor with great extension library
@@ -107,6 +114,22 @@ Reference: https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/i
 The extension must be enabled to allow use of File URLS.
 
 == Networking
+
+== VNC Server
+
+The VNC server will allow for GUI remote access for Windows systems.
+
+In RPI Terminal enter
+
+  sudo raspi-config
+
+Go to Interface options, then to VNC, then enable VNC server
+
+.Verify VNC running
+image::vncserver.png[Verify VNC running, alt='Alt Tag', align='center']
+ 
+
+
 
 === Mount Windows share
 

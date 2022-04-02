@@ -8,7 +8,7 @@
 <meta name="description" content="Metatag description more description">
 <meta name="keywords" content="">
 <meta name="author" content="John HR Schuster">
-<title>Raspberry PI 400===&lt;br&gt;+++Install Notes</title>
+<title>Raspberry PI 400 Install Notes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -444,13 +444,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Raspberry PI 400===&lt;br&gt;+++Install Notes</h1>
+<h1>Raspberry PI 400 <br>Install Notes</h1>
 <div class="details">
 <span id="author" class="author">John HR Schuster</span><br>
 <span id="email" class="email"><a href="mailto:GeekMustHave@PhoenixWorkgroup.com">GeekMustHave@PhoenixWorkgroup.com</a></span><br>
 <span id="revnumber">version 2.1b,</span>
 <span id="revdate">04/01/2022</span>
-<br><span id="revremark">Blog Post</span>
+<br><span id="revremark">Notes</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -540,8 +540,17 @@ sudo apt install code</pre>
 <div class="paragraph">
 <p>Rference: <a href="https://www.raspberrypi-spy.co.uk/2020/12/install-arduino-ide-on-raspberry-pi/" class="bare">https://www.raspberrypi-spy.co.uk/2020/12/install-arduino-ide-on-raspberry-pi/</a></p>
 </div>
-<div class="paragraph">
-<p>The install below results in the installation of Arduino IDE version 1.6. This is an extremely outdated version which makes it difficult to use or impossible to flash certain devices.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The install below results in the installation of Arduino IDE version 1.6. This is an extremely outdated version which makes it difficult to use or impossible to flash certain devices.
+</td>
+</tr>
+</table>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -555,19 +564,22 @@ sudo apt install code</pre>
 <p>Linux Arm 64 bit, as rgw RPI400 project is 64 bt based.</p>
 </div>
 <div class="paragraph">
-<p>Go to download and run</p>
+<p>Copy of <code>arduino-1.8.19-linuxaarch64.tar</code> is located <a href="/largefiles/arduino-1.8.19-linuxaarch64.tar">here</a></p>
+</div>
+<div class="paragraph">
+<p>Go to download and untar</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>tar -xf arduino-####-linuxarm.tar.xz</pre>
+<pre>tar -xf arduino-1.8.19-linuxarm.tar.xz</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Move the folder to th <code>opt</code> directory.</p>
+<p>Move the folder to the <code>opt</code> directory.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>sudo mv arduino-#### /opt</pre>
+<pre>sudo mv arduino-1.8.19 /opt</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -575,12 +587,13 @@ sudo apt install code</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>sudo /opt/arduino-####/install.sh</pre>
+<pre>sudo /opt/arduino-1.8.19/install.sh</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>The scrip will add and entry to the <code>Programming</code> tab for Arduino IDE.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -718,7 +731,7 @@ No space between user and password, all optional args are comma separated.
 <div id="footer">
 <div id="footer-text">
 Version 2.1b<br>
-Last updated 2022-04-01 22:33:44 -0400
+Last updated 2022-04-01 22:42:54 -0400
 </div>
 </div>
 </body>
