@@ -137,6 +137,29 @@ Reference: https://www.bitpi.co/2015/02/16/accessing-a-windows-share-with-a-rasp
 
 This will allow the Dropbox folder on the Windows desktop be available to the RPI400.
 
+Verify using Windows `CMD` that Windows share is available using the following command.
+
+  net share
+
+The share must be listed here to use in on RPI.
+
+.Verify Windows share
+image::netshare.png[Veriy Windows share, alt='Alt Tag', align='center']
+ 
+Verify the proper permissions exist
+
+.Dropbox folder permissions
+image::permissions.png[Dropbox folder permissions, alt='Alt Tag', align='center']
+ 
+NOTE: Respect the RPI User name you logged in under.  In this case the login is `jschust2`  not `pi`
+
+Using the RPI GUI Raspberry PI Configuration utility, Turn off the Auto login feature to avoid confusing `jschust2` and `pi`.  There were a lot of headaches here.
+
+.RPI Auto Login
+image::disablelogins.png[RPI Auto Login, alt='Alt Tag', align='center']
+ 
+
+
 We will need to install cifs-utils. This will help us mount SMB directories- which is what we get from Windows. We can install easily on Raspbian by running the following command:
 
   sudo apt-get install cifs-utils;  
@@ -156,7 +179,8 @@ NOTE: No space between user and password, all optional args are comma separated.
 
 In order for your Raspberry Pi to mount the network shares on boot up, we need to modify the /etc/fstab file.
 
-  sudo nano /etc/fstab
+  
+  
 
 There may be entries there already. All we need to do is add the following to the end of the file:
 

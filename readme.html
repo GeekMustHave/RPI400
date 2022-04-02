@@ -662,6 +662,53 @@ The install below results in the installation of Arduino IDE version 1.6. This i
 <p>This will allow the Dropbox folder on the Windows desktop be available to the RPI400.</p>
 </div>
 <div class="paragraph">
+<p>Verify using Windows <code>CMD</code> that Windows share is available using the following command.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>net share</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The share must be listed here to use in on RPI.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/netshare.png" alt="Alt Tag">
+</div>
+<div class="title">Figure 3. Verify Windows share</div>
+</div>
+<div class="paragraph">
+<p>Verify the proper permissions exist</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/permissions.png" alt="Alt Tag">
+</div>
+<div class="title">Figure 4. Dropbox folder permissions</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Respect the RPI User name you logged in under.  In this case the login is <code>jschust2</code>  not <code>pi</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Using the RPI GUI Raspberry PI Configuration utility, Turn off the Auto login feature to avoid confusing <code>jschust2</code> and <code>pi</code>.  There were a lot of headaches here.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/disablelogins.png" alt="Alt Tag">
+</div>
+<div class="title">Figure 5. RPI Auto Login</div>
+</div>
+<div class="paragraph">
 <p>We will need to install cifs-utils. This will help us mount SMB directories- which is what we get from Windows. We can install easily on Raspbian by running the following command:</p>
 </div>
 <div class="literalblock">
@@ -702,11 +749,6 @@ No space between user and password, all optional args are comma separated.
 </div>
 <div class="paragraph">
 <p>In order for your Raspberry Pi to mount the network shares on boot up, we need to modify the /etc/fstab file.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo nano /etc/fstab</pre>
-</div>
 </div>
 <div class="paragraph">
 <p>There may be entries there already. All we need to do is add the following to the end of the file:</p>
@@ -767,7 +809,7 @@ No space between user and password, all optional args are comma separated.
 <div id="footer">
 <div id="footer-text">
 Version 2.1b<br>
-Last updated 2022-04-01 22:55:31 -0400
+Last updated 2022-04-02 00:10:37 -0400
 </div>
 </div>
 </body>
