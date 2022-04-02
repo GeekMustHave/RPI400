@@ -32,7 +32,7 @@ more description
 :page-tags: 
 :page-Date: 04/01/2022
 
-Preamble paragraph goes here
+Installation and customization of Raspberry PI 400 for development environment.
 
 To view a PDF version of this document click this link:./readme.pdf[Link]
 
@@ -42,6 +42,101 @@ The GeekMustHave Blog Post is located at this link:{web-site}[Link,window='_blan
 
 
 == Introduction
+
+These are notes from the start up installation and configuration of the RPI400.
+
+
+== Additional Software
+
+=== Double commander
+
+Dual pane file manager
+
+ sudo apt-get install doublecmd-qt
+
+=== Visual Studio Code
+
+IDE and editor with great extension library
+
+Reference: https://code.visualstudio.com/docs/setup/raspberry-pi
+
+    sudo apt update
+    sudo apt install code
+
+=== Arduino IDE
+
+C++ IDE editor for ardunio based boards
+
+Rference: https://www.raspberrypi-spy.co.uk/2020/12/install-arduino-ide-on-raspberry-pi/
+
+The install below results in the installation of Arduino IDE version 1.6. This is an extremely outdated version which makes it difficult to use or impossible to flash certain devices.
+
+ sudo apt install arduino
+
+Download current IDE from website https://www.arduino.cc/en/software
+
+Linux Arm 64 bit, as rgw RPI400 project is 64 bt based.
+
+Go to download and run
+
+  tar -xf arduino-####-linuxarm.tar.xz
+
+Move the folder to th `opt` directory.
+
+  sudo mv arduino-#### /opt
+
+Run the script to install it
+
+   sudo /opt/arduino-####/install.sh
+
+The scrip will add and entry to the `Programming` tab for Arduino IDE.
+
+== Chrome Extensions
+
+=== ASCIIDoctor JS extension
+
+This Chrome extension will allow viewing of an `*.adoc` file directly in the browser.
+
+Reference: https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia
+
+The extension must be enabled to allow use of File URLS.
+
+== Networking
+
+=== Mount Windows share
+
+Reference: https://www.bitpi.co/2015/02/16/accessing-a-windows-share-with-a-raspberry-pi/
+
+This will allow the Dropbox folder on the Windows desktop be available to the RPI400.
+
+We will need to install cifs-utils. This will help us mount SMB directories- which is what we get from Windows. We can install easily on Raspbian by running the following command:
+
+  sudo apt-get install cifs-utils;  
+
+Establish mount to a Windows share
+
+Now we will create a mount point in the `mnt` directory:
+
+  mkdir /mnt/Dropbox/
+
+The mount command for the Dropbox folder on the desktop the newly created folder on the RPI400.
+
+
+  sudo mount.cifs -o user=jschust2,password=****** //10.1.10.22/Dropbox /mnt/Dropbox 
+
+NOTE: No space between user and password, all optional args are comma separated.
+
+In order for your Raspberry Pi to mount the network shares on boot up, we need to modify the /etc/fstab file.
+
+  sudo nano /etc/fstab
+
+There may be entries there already. All we need to do is add the following to the end of the file:
+
+  //10.1.10.22/Dropbox  /mnt/Dropbox  cifs username=jschust2,password=******,iocharset=utf8,sec=ntlm  0  0
+
+Now we can manually run the same mount process at boot up from the command line by running:
+
+  sudo mount -a;
 
 
 == References
