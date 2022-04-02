@@ -468,13 +468,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_asciidoctor_js_extension">3.1. ASCIIDoctor JS extension</a></li>
 </ul>
 </li>
-<li><a href="#_networking">4. Networking</a>
+<li><a href="#_networking">4. Networking</a></li>
+<li><a href="#_vnc_server">5. VNC Server</a>
 <ul class="sectlevel2">
-<li><a href="#_mount_windows_share">4.1. Mount Windows share</a></li>
+<li><a href="#_mount_windows_share">5.1. Mount Windows share</a></li>
 </ul>
 </li>
-<li><a href="#_references">5. References</a></li>
-<li><a href="#_document_history">6. Document History</a></li>
+<li><a href="#_references">6. References</a></li>
+<li><a href="#_document_history">7. Document History</a></li>
 </ul>
 </div>
 </div>
@@ -515,6 +516,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre>sudo apt-get install doublecmd-qt</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>After this install the Double commander should be in the <code>Accessories</code></p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/doublecommander.png" alt="Alt Tag">
+</div>
+<div class="title">Figure 1. Double Commander</div>
 </div>
 </div>
 <div class="sect2">
@@ -617,8 +627,34 @@ The install below results in the installation of Arduino IDE version 1.6. This i
 <div class="sect1">
 <h2 id="_networking">4. Networking</h2>
 <div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vnc_server">5. VNC Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The VNC server will allow for GUI remote access for Windows systems.</p>
+</div>
+<div class="paragraph">
+<p>In RPI Terminal enter</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo raspi-config</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Go to Interface options, then to VNC, then enable VNC server</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/vncserver.png" alt="Alt Tag">
+</div>
+<div class="title">Figure 2. Verify VNC running</div>
+</div>
 <div class="sect2">
-<h3 id="_mount_windows_share">4.1. Mount Windows share</h3>
+<h3 id="_mount_windows_share">5.1. Mount Windows share</h3>
 <div class="paragraph">
 <p>Reference: <a href="https://www.bitpi.co/2015/02/16/accessing-a-windows-share-with-a-raspberry-pi/" class="bare">https://www.bitpi.co/2015/02/16/accessing-a-windows-share-with-a-raspberry-pi/</a></p>
 </div>
@@ -692,13 +728,13 @@ No space between user and password, all optional args are comma separated.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_references">5. References</h2>
+<h2 id="_references">6. References</h2>
 <div class="sectionbody">
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_document_history">6. Document History</h2>
+<h2 id="_document_history">7. Document History</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Document History</caption>
@@ -731,7 +767,7 @@ No space between user and password, all optional args are comma separated.
 <div id="footer">
 <div id="footer-text">
 Version 2.1b<br>
-Last updated 2022-04-01 22:42:54 -0400
+Last updated 2022-04-01 22:55:31 -0400
 </div>
 </div>
 </body>
