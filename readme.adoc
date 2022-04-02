@@ -1,6 +1,6 @@
-= Raspberry PI 400===<br>+++Install Notes
+= Raspberry PI 400 +++<br>+++Install Notes
 John Schuster <John.schuster@PhoenixWorkgroup.com>
-v2.1b, 04/01/2022: Blog Post
+v2.1b, 04/01/2022: Notes
 :Author: John HR Schuster
 :Company: GeekMustHave
 :toc: left
@@ -27,7 +27,7 @@ more description
 :keywords: 
 :email: GeekMustHave@PhoenixWorkgroup.com
 :hugo: true
-:page-title: Raspberry PI 400===<br>+++Install Notes
+:page-title: Raspberry PI 400+++<br>+++Install Notes
 :page-image: ./images/create-doco_gmh-Standard-cover.png
 :page-tags: 
 :page-Date: 04/01/2022
@@ -69,7 +69,7 @@ C++ IDE editor for ardunio based boards
 
 Rference: https://www.raspberrypi-spy.co.uk/2020/12/install-arduino-ide-on-raspberry-pi/
 
-The install below results in the installation of Arduino IDE version 1.6. This is an extremely outdated version which makes it difficult to use or impossible to flash certain devices.
+NOTE: The install below results in the installation of Arduino IDE version 1.6. This is an extremely outdated version which makes it difficult to use or impossible to flash certain devices.
 
  sudo apt install arduino
 
@@ -77,19 +77,24 @@ Download current IDE from website https://www.arduino.cc/en/software
 
 Linux Arm 64 bit, as rgw RPI400 project is 64 bt based.
 
-Go to download and run
+Copy of `arduino-1.8.19-linuxaarch64.tar` is located link:/largefiles/arduino-1.8.19-linuxaarch64.tar[here]
 
-  tar -xf arduino-####-linuxarm.tar.xz
+Go to download and untar
 
-Move the folder to th `opt` directory.
+  tar -xf arduino-1.8.19-linuxarm.tar.xz
 
-  sudo mv arduino-#### /opt
+Move the folder to the `opt` directory.
+
+  sudo mv arduino-1.8.19 /opt
 
 Run the script to install it
 
-   sudo /opt/arduino-####/install.sh
+   sudo /opt/arduino-1.8.19/install.sh
 
 The scrip will add and entry to the `Programming` tab for Arduino IDE.
+
+
+<<<<
 
 == Chrome Extensions
 
