@@ -115,7 +115,7 @@ The extension must be enabled to allow use of File URLS.
 
 == Networking
 
-== VNC Server
+=== VNC Server
 
 The VNC server will allow for GUI remote access for Windows systems.
 
@@ -128,10 +128,32 @@ Go to Interface options, then to VNC, then enable VNC server
 .Verify VNC running
 image::vncserver.png[Verify VNC running, alt='Alt Tag', align='center']
  
+== Windows Mount RPI400 Share
+
+Using Windows file explorer map a drive
+
+.Map Drive
+image::mapdrive.png[Map Drive, alt='Alt Tag', align='center']
+ 
+The go to the proper RPI400 share
+
+.SharedFolder
+image::browsefolder.png[SharedFolder, alt='Alt Tag', align='center']
+ 
 
 
 
 === Mount Windows share
+
+NOTE: The following section never worked!!!!
+All I ever got was
+
+----
+ jschust2@RaspberryPI:~ $ sudo mount.cifs //10.1.10.22/Dropbox /home/jschust2/Dropbox/ -o user=jschust2,password=landsra9035
+mount error(2): No such file or directory
+Refer to the mount.cifs(8) manual page (e.g. man mount.cifs) and kernel log messages (dmesg)
+jschust2@RaspberryPI:~ $ 
+----
 
 Reference: https://www.bitpi.co/2015/02/16/accessing-a-windows-share-with-a-raspberry-pi/
 
@@ -158,7 +180,11 @@ Using the RPI GUI Raspberry PI Configuration utility, Turn off the Auto login fe
 .RPI Auto Login
 image::disablelogins.png[RPI Auto Login, alt='Alt Tag', align='center']
  
+Install SAMBA and Utilities for SMB support.
 
+ sudo apt-get install samba
+
+ sudo apt-get install samba-common-bin 
 
 We will need to install cifs-utils. This will help us mount SMB directories- which is what we get from Windows. We can install easily on Raspbian by running the following command:
 
@@ -189,6 +215,10 @@ There may be entries there already. All we need to do is add the following to th
 Now we can manually run the same mount process at boot up from the command line by running:
 
   sudo mount -a;
+
+restart the samba service so that it loads in our configuration changes.
+
+  sudo systemctl restart smbd  
 
 
 == References
