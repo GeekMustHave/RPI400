@@ -468,8 +468,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_asciidoctor_js_extension">3.1. ASCIIDoctor JS extension</a></li>
 </ul>
 </li>
-<li><a href="#_networking">4. Networking</a></li>
-<li><a href="#_vnc_server">5. VNC Server</a>
+<li><a href="#_networking">4. Networking</a>
+<ul class="sectlevel2">
+<li><a href="#_vnc_server">4.1. VNC Server</a></li>
+</ul>
+</li>
+<li><a href="#_windows_mount_rpi400_share">5. Windows Mount RPI400 Share</a>
 <ul class="sectlevel2">
 <li><a href="#_mount_windows_share">5.1. Mount Windows share</a></li>
 </ul>
@@ -627,12 +631,8 @@ The install below results in the installation of Arduino IDE version 1.6. This i
 <div class="sect1">
 <h2 id="_networking">4. Networking</h2>
 <div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_vnc_server">5. VNC Server</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_vnc_server">4.1. VNC Server</h3>
 <div class="paragraph">
 <p>The VNC server will allow for GUI remote access for Windows systems.</p>
 </div>
@@ -653,8 +653,53 @@ The install below results in the installation of Arduino IDE version 1.6. This i
 </div>
 <div class="title">Figure 2. Verify VNC running</div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_windows_mount_rpi400_share">5. Windows Mount RPI400 Share</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using Windows file explorer map a drive</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/mapdrive.png" alt="Alt Tag">
+</div>
+<div class="title">Figure 3. Map Drive</div>
+</div>
+<div class="paragraph">
+<p>The go to the proper RPI400 share</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/browsefolder.png" alt="Alt Tag">
+</div>
+<div class="title">Figure 4. SharedFolder</div>
+</div>
 <div class="sect2">
 <h3 id="_mount_windows_share">5.1. Mount Windows share</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The following section never worked!!!!
+All I ever got was
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> jschust2@RaspberryPI:~ $ sudo mount.cifs //10.1.10.22/Dropbox /home/jschust2/Dropbox/ -o user=jschust2,password=landsra9035
+mount error(2): No such file or directory
+Refer to the mount.cifs(8) manual page (e.g. man mount.cifs) and kernel log messages (dmesg)
+jschust2@RaspberryPI:~ $</pre>
+</div>
+</div>
 <div class="paragraph">
 <p>Reference: <a href="https://www.bitpi.co/2015/02/16/accessing-a-windows-share-with-a-raspberry-pi/" class="bare">https://www.bitpi.co/2015/02/16/accessing-a-windows-share-with-a-raspberry-pi/</a></p>
 </div>
@@ -676,7 +721,7 @@ The install below results in the installation of Arduino IDE version 1.6. This i
 <div class="content">
 <img src="./images/netshare.png" alt="Alt Tag">
 </div>
-<div class="title">Figure 3. Verify Windows share</div>
+<div class="title">Figure 5. Verify Windows share</div>
 </div>
 <div class="paragraph">
 <p>Verify the proper permissions exist</p>
@@ -685,7 +730,7 @@ The install below results in the installation of Arduino IDE version 1.6. This i
 <div class="content">
 <img src="./images/permissions.png" alt="Alt Tag">
 </div>
-<div class="title">Figure 4. Dropbox folder permissions</div>
+<div class="title">Figure 6. Dropbox folder permissions</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -706,7 +751,20 @@ Respect the RPI User name you logged in under.  In this case the login is <code>
 <div class="content">
 <img src="./images/disablelogins.png" alt="Alt Tag">
 </div>
-<div class="title">Figure 5. RPI Auto Login</div>
+<div class="title">Figure 7. RPI Auto Login</div>
+</div>
+<div class="paragraph">
+<p>Install SAMBA and Utilities for SMB support.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo apt-get install samba</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo apt-get install samba-common-bin</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>We will need to install cifs-utils. This will help us mount SMB directories- which is what we get from Windows. We can install easily on Raspbian by running the following command:</p>
@@ -766,6 +824,14 @@ No space between user and password, all optional args are comma separated.
 <pre>sudo mount -a;</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>restart the samba service so that it loads in our configuration changes.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo systemctl restart smbd</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -809,7 +875,7 @@ No space between user and password, all optional args are comma separated.
 <div id="footer">
 <div id="footer-text">
 Version 2.1b<br>
-Last updated 2022-04-02 00:10:37 -0400
+Last updated 2022-04-04 21:34:22 -0400
 </div>
 </div>
 </body>

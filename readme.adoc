@@ -111,7 +111,18 @@ This Chrome extension will allow viewing of an `*.adoc` file directly in the bro
 
 Reference: https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia
 
+.Crhome Store
+image::asciidoctorjs.png[Crhome Store, alt='Alt Tag', align='center']
+ 
+
 The extension must be enabled to allow use of File URLS.
+
+.Extension Setting
+image::allowurl.png[Extension Setting, alt='Alt Tag', align='center']
+ 
+
+ 
+
 
 == Networking
 
