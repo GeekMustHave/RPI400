@@ -121,7 +121,7 @@ The extension must be enabled to allow use of File URLS.
 image::allowurl.png[Extension Setting, alt='Alt Tag', align='center']
  
 
- 
+   
 
 
 == Networking
